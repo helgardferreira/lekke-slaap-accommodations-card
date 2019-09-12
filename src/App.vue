@@ -3,7 +3,16 @@
     <!-- <h1>Search Results</h1> -->
 
     <div class="appointments">
-      <accommodations-card name="Tsala Treetop Lodge">
+      <accommodations-card
+        name="Tsala Treetop Lodge"
+        :detailsObject="{
+          type: 'Hotel',
+          price: 'R12 070 for 2 people per night',
+          checkIn: '14:00 to 00:00',
+          checkOut: '11:00',
+          address: 'Off N2, Plettenberg Bay'
+        }"
+      >
         <div slot="extract">
           <strong>Tsala Treetop Lodge</strong> is a lavish celebration of the
           spirit of Africa.
