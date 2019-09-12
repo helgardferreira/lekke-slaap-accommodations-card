@@ -2,19 +2,19 @@
   <div id="app">
     <h1>Search Results</h1>
 
-    <div class="appointments-container">
-      <accomodations-card msg="Welcome to Your Vue.js App" />
+    <div class="appointments">
+      <accommodations-card msg="Welcome to Your Vue.js App" />
     </div>
   </div>
 </template>
 
 <script>
-import AccomodationsCard from "./components/AccomodationsCard.vue";
+import AccommodationsCard from "./components/AccommodationsCard.vue";
 
 export default {
   name: "app",
   components: {
-    accomodationsCard: AccomodationsCard
+    AccommodationsCard: AccommodationsCard
   }
 };
 </script>
