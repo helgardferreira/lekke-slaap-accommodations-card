@@ -1,9 +1,14 @@
 <template>
   <div id="app">
-    <h1>Search Results</h1>
+    <!-- <h1>Search Results</h1> -->
 
     <div class="appointments">
-      <accommodations-card msg="Welcome to Your Vue.js App" />
+      <accommodations-card name="Tsala Treetop Lodge">
+        <div slot="extract">
+          <strong>Tsala Treetop Lodge</strong> is a lavish celebration of the
+          spirit of Africa.
+        </div>
+      </accommodations-card>
     </div>
   </div>
 </template>
@@ -23,7 +28,7 @@ export default {
 body {
   width: 100vw;
   height: 100vh;
-  margin: 0;
+  margin: 10px 0;
   padding: 0;
   font-family: "NTR", sans-serif;
   background: #eee;
