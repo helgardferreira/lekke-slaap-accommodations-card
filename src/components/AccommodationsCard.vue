@@ -19,11 +19,21 @@
         Book your accommodation now at <strong>{{ name }}</strong>
       </slot>
     </div>
-    <div v-if="details.length > 0" class="details">
+    <div v-if="showDetails" class="details">
       <ul>
-        <li v-for="(detail, index) in details" :key="index" class="detail">
-          {{ detail }}
-        </li>
+        <transition-group name="slide">
+          <li
+            v-for="(detail, index) in details"
+            :key="`${index}-${detail}`"
+            :class="{
+              'detail-top': index === 0,
+              'detail-middle': index > 0 && index < details.length - 1,
+              'detail-bottom': index === details.length - 1
+            }"
+          >
+            {{ detail }}
+          </li>
+        </transition-group>
       </ul>
     </div>
     <button v-else @click="mapDetails">View More</button>
@@ -37,11 +47,13 @@ export default {
   data() {
     return {
       bkgImg: require("../assets/tsala-treetop-lodge-1.jpeg"),
-      details: []
+      details: [],
+      showDetails: false
     };
   },
   methods: {
     mapDetails() {
+      this.showDetails = true;
       for (const [index, [key, value]] of Object.entries(
         this.detailsObject
       ).entries()) {
@@ -50,7 +62,7 @@ export default {
           else if (key === "checkOut")
             this.details.push(`Check out at ${value}`);
           else this.details.push(value);
-        }, index * 150);
+        }, index * 200);
       }
     }
   }
@@ -60,19 +72,19 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 button {
-  margin: 0 10px 10px 0;
+  margin: 0 10px 0 0;
   font-size: 0.8rem;
   background: #f9703e;
   color: white;
   border: 0;
   padding: 5px 10px;
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 0 0;
   outline: 0;
   cursor: pointer;
 }
 
 button:hover {
-  background: #f35627;
+  background: #de3a11;
 }
 
 .accommodation-card {
@@ -127,25 +139,48 @@ main {
   color: white;
   font-size: 0.8rem;
   background: #f9703e;
-  border-radius: 0 5px 5px 0;
-  margin: 10px 10px 10px 0;
+  border-radius: 5px;
+  margin: 10px;
   padding: 10px;
 }
 
 .details {
   color: white;
-  font-size: 0.8rem;
-  background: #f9703e;
-  border-radius: 0 5px 5px 0;
-  margin: 10px 10px 10px 0;
-  padding: 10px;
+  font-size: 1rem;
+  margin: 10px;
   ul {
     margin: 0;
-    padding-left: 15px;
+    padding: 0;
+    li {
+      background: #f9703e;
+      list-style-type: none;
+      margin: 0;
+      padding: 2px 0 2px 10px;
+    }
   }
 }
 
-.detail {
-  margin: 0;
+.detail-top {
+  border-radius: 5px 5px 0 0;
+  border-bottom: 2px solid #ffe8d9;
+}
+
+.detail-middle {
+  border-radius: 0;
+  border-bottom: 2px solid #ffe8d9;
+}
+
+.detail-bottom {
+  border-radius: 0 0 5px 5px;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.3s ease-out;
+}
+
+.slide-enter,
+.slide-leave-to {
+  transform: translateX(-100px);
 }
 </style>
