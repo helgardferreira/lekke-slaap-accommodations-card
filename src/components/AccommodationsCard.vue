@@ -36,7 +36,7 @@
         </transition-group>
       </ul>
     </div>
-    <button v-else @click="mapDetails">View More</button>
+    <button class="primary-btn" v-else @click="mapDetails">View More</button>
   </div>
 </template>
 
@@ -51,18 +51,20 @@ export default {
       showDetails: false
     };
   },
+  created() {
+    this.mapDetails();
+  },
   methods: {
     mapDetails() {
       this.showDetails = true;
       for (const [index, [key, value]] of Object.entries(
         this.detailsObject
       ).entries()) {
-        setTimeout(() => {
-          if (key === "checkIn") this.details.push(`Check in from ${value}`);
-          else if (key === "checkOut")
-            this.details.push(`Check out at ${value}`);
-          else this.details.push(value);
-        }, index * 200);
+        // setTimeout(() => {
+        if (key === "checkIn") this.details.push(`Check in from ${value}`);
+        else if (key === "checkOut") this.details.push(`Check out at ${value}`);
+        else this.details.push(value);
+        // }, index * 200);
       }
     }
   }
@@ -71,27 +73,27 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-button {
-  margin: 0 10px 0 0;
+.primary-btn {
+  margin: 10px;
   font-size: 0.8rem;
-  background: #f9703e;
-  color: white;
+  background: #f5f7fa;
+  color: #1f2933;
   border: 0;
   padding: 5px 10px;
-  border-radius: 0 4px 0 0;
+  border-radius: 4px;
   outline: 0;
   cursor: pointer;
 }
 
-button:hover {
-  background: #de3a11;
+.primary-btn:hover {
+  background: #cbd2d9;
 }
 
 .accommodation-card {
   width: 300px;
   overflow: hidden;
   border-radius: 10px;
-  background: #1f2933;
+  background: #323f4b;
   header {
     position: relative;
   }
@@ -136,38 +138,38 @@ main {
 }
 
 .extract {
-  color: white;
+  color: #1f2933;
   font-size: 0.8rem;
-  background: #f9703e;
+  background: #f5f7fa;
   border-radius: 5px;
-  margin: 10px;
+  margin: 10px 10px 0 10px;
   padding: 10px;
 }
 
 .details {
-  color: white;
+  color: #1f2933;
   font-size: 1rem;
   margin: 10px;
   ul {
     margin: 0;
     padding: 0;
     li {
-      background: #f9703e;
+      background: #f5f7fa;
       list-style-type: none;
       margin: 0;
-      padding: 2px 0 2px 10px;
+      padding: 8px 0 8px 12px;
     }
   }
 }
 
 .detail-top {
   border-radius: 5px 5px 0 0;
-  border-bottom: 2px solid #ffe8d9;
+  border-bottom: 2px solid #323f4b;
 }
 
 .detail-middle {
   border-radius: 0;
-  border-bottom: 2px solid #ffe8d9;
+  border-bottom: 2px solid #323f4b;
 }
 
 .detail-bottom {
