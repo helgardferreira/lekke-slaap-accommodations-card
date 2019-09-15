@@ -1,6 +1,10 @@
 <template>
   <div class="accommodation-card">
-    <header>
+    <header
+      @click="
+        goTo('https://www.lekkeslaap.co.za/akkommodasie/tsala-treetop-lodge')
+      "
+    >
       <h4 class="header-text">
         Tsala Treetop Lodge
       </h4>
@@ -108,6 +112,9 @@ export default {
           this.starColors.push("#e9b949");
         }, 1 + i * 200);
       }
+    },
+    goTo(address) {
+      window.location.assign(address);
     }
   }
 };
@@ -137,6 +144,7 @@ export default {
   border-radius: 10px;
   background: #323f4b;
   header {
+    cursor: pointer;
     position: relative;
   }
 }
