@@ -6,7 +6,7 @@
       "
     >
       <h4 class="header-text">
-        Tsala Treetop Lodge
+        {{ name }}
       </h4>
       <div
         class="header-img"
