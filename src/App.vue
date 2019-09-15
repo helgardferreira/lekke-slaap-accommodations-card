@@ -11,7 +11,11 @@
           type: 'Hotel',
           checkIn: '14:00 to 00:00',
           checkOut: '11:00',
-          address: 'Off N2, Plettenberg Bay'
+          address: {
+            text: 'Off N2, Plettenberg Bay',
+            href:
+              'https://www.google.com/maps/dir//Tsala+Treetop+Lodge,+Off+N2+10km+W+Of+Plettenberg,+Plettenberg+Bay,+6600'
+          }
         }"
       >
         <p slot="extract">

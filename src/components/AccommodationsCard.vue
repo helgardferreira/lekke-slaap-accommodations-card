@@ -55,7 +55,17 @@
             'detail-bottom': index === details.length - 1
           }"
         >
-          {{ detail }}
+          <a
+            v-if="detail.href"
+            :href="detail.href"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ detail.text }}
+          </a>
+          <template v-else>
+            {{ detail }}
+          </template>
         </p>
       </transition-group>
     </div>
@@ -230,6 +240,15 @@ main {
     list-style-type: none;
     margin: 2px 0;
     padding: 8px;
+  }
+  a {
+    color: #f5f7fa;
+  }
+  a:visited {
+    color: #e4e7eb;
+  }
+  a:hover {
+    color: #f5f7fa;
   }
 }
 
