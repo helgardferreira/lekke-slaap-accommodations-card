@@ -19,9 +19,16 @@
         Book your accommodation now at <strong>{{ name }}</strong>
       </slot>
     </div>
-    <div v-if="showDetails" class="details">
-      <ul>
-        <transition-group name="slide">
+    <div class="pricing">
+      <slot name="pricing">
+        Get a quote for <strong>{{ name }}</strong></slot
+      >
+    </div>
+    <button class="primary-btn" v-if="!showDetails" @click="mapDetails">
+      View More
+    </button>
+    <div class="details">
+      <transition-group name="slide">
           <li
             v-for="(detail, index) in details"
             :key="`${index}-${detail}`"
@@ -146,13 +153,11 @@ main {
   padding: 10px;
 }
 
-.details {
+.pricing {
   color: #1f2933;
-  font-size: 1rem;
-  margin: 10px;
-  ul {
-    margin: 0;
-    padding: 0;
+  font-size: 14px;
+  margin: 12px;
+  padding: 0;
 }
 
 .details {
