@@ -11,9 +11,22 @@
         }"
       ></div>
     </header>
-    <!-- <aside class="premium-banner">
-      Premium
-    </aside> -->
+    <div class="meta">
+      <div class="rating">
+        <star-icon
+          v-for="(num, index) in 5"
+          :key="`${index}-filled`"
+          :primaryColor="starColors[index]"
+          size="14"
+          class="star"
+        />
+
+        &nbsp; ({{ reviewCount }})
+      </div>
+      <h5 class="premium-text">
+        PREMIUM
+      </h5>
+    </div>
     <div class="extract">
       <slot name="extract">
         Book your accommodation now at <strong>{{ name }}</strong>
@@ -48,18 +61,33 @@
 </template>
 
 <script>
+import Star from "../components/icons/Star";
+
 export default {
   name: "AccommodationsCard",
-  props: ["name", "detailsObject"],
+  props: {
+    name: {},
+    detailsObject: {},
+    rating: {
+      default: 0
+    },
+    reviewCount: {
+      default: 0
+    }
+  },
+  components: {
+    starIcon: Star
+  },
   data() {
     return {
       bkgImg: require("../assets/tsala-treetop-lodge-1.jpeg"),
       details: [],
-      showDetails: false
+      showDetails: false,
+      starColors: []
     };
   },
-  created() {
-    this.mapDetails();
+  mounted() {
+    this.fillStars();
   },
   methods: {
     mapDetails() {
@@ -71,7 +99,14 @@ export default {
         if (key === "checkIn") this.details.push(`Check in from ${value}`);
         else if (key === "checkOut") this.details.push(`Check out at ${value}`);
         else this.details.push(value);
-        // }, index * 200);
+        }, index * 200);
+      }
+    },
+    fillStars() {
+      for (let i = 0; i < Math.floor(this.rating); i++) {
+        setTimeout(() => {
+          this.starColors.push("#e9b949");
+        }, 1 + i * 200);
       }
     }
   }
@@ -130,9 +165,23 @@ main {
   border-radius: 0 50px 50px 0;
   // transition: 0.3s opacity ease-in;
   margin: 0;
-  padding: 20px 35px;
-  color: white;
+  padding: 14px;
+  color: #f5f7fa;
 }
+
+.meta {
+  margin: 12px;
+  display: flex;
+  justify-content: space-between;
+
+  .rating {
+    font-size: 14px;
+    padding: 0;
+    display: flex;
+    .star {
+      display: block;
+    }
+  }
 
 .premium-banner {
   text-align: right;
