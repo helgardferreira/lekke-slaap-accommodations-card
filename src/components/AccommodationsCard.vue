@@ -46,21 +46,19 @@
     </button>
     <div class="details">
       <transition-group name="slide">
-          <li
-            v-for="(detail, index) in details"
-            :key="`${index}-${detail}`"
-            :class="{
-              'detail-top': index === 0,
-              'detail-middle': index > 0 && index < details.length - 1,
-              'detail-bottom': index === details.length - 1
-            }"
-          >
-            {{ detail }}
-          </li>
-        </transition-group>
-      </ul>
+        <p
+          v-for="(detail, index) in details"
+          :key="`${detail}`"
+          :class="{
+            'detail-top': index === 0,
+            'detail-middle': index > 0 && index < details.length - 1,
+            'detail-bottom': index === details.length - 1
+          }"
+        >
+          {{ detail }}
+        </p>
+      </transition-group>
     </div>
-    <button class="primary-btn" v-else @click="mapDetails">View More</button>
   </div>
 </template>
 
@@ -99,10 +97,11 @@ export default {
       for (const [index, [key, value]] of Object.entries(
         this.detailsObject
       ).entries()) {
-        // setTimeout(() => {
-        if (key === "checkIn") this.details.push(`Check in from ${value}`);
-        else if (key === "checkOut") this.details.push(`Check out at ${value}`);
-        else this.details.push(value);
+        setTimeout(() => {
+          if (key === "checkIn") this.details.push(`Check in from ${value}`);
+          else if (key === "checkOut")
+            this.details.push(`Check out at ${value}`);
+          else this.details.push(value);
         }, index * 200);
       }
     },
@@ -140,9 +139,10 @@ export default {
 
 .accommodation-card {
   width: 300px;
+  border: 1px solid #e4e7eb;
   overflow: hidden;
-  border-radius: 10px;
-  background: #323f4b;
+  border-radius: 8px;
+  background: #f5f7fa;
   header {
     cursor: pointer;
     position: relative;
