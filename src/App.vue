@@ -7,16 +7,21 @@
         name="Tsala Treetop Lodge"
         rating="4.3"
         reviewCount="1"
-        :detailsObject="{
-          type: 'Hotel',
-          checkIn: '14:00 to 00:00',
-          checkOut: '11:00',
-          address: {
-            text: 'Off N2, Plettenberg Bay',
-            href:
-              'https://www.google.com/maps/dir//Tsala+Treetop+Lodge,+Off+N2+10km+W+Of+Plettenberg,+Plettenberg+Bay,+6600'
-          }
-        }"
+        :detailsMap="
+          new Map([
+            ['type', 'Hotel'],
+            ['checkIn', '14:00 to 00:00'],
+            ['checkOut', '11:00'],
+            [
+              'address',
+              {
+                text: 'Off N2, Plettenberg Bay',
+                href:
+                  'https://www.google.com/maps/dir//Tsala+Treetop+Lodge,+Off+N2+10km+W+Of+Plettenberg,+Plettenberg+Bay,+6600'
+              }
+            ]
+          ])
+        "
       >
         <p slot="extract">
           <strong>Tsala Treetop Lodge</strong> is a lavish celebration of the

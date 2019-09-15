@@ -79,7 +79,7 @@ export default {
   name: "AccommodationsCard",
   props: {
     name: {},
-    detailsObject: {},
+    detailsMap: {},
     rating: {
       default: 0
     },
@@ -104,15 +104,15 @@ export default {
   methods: {
     mapDetails() {
       this.showDetails = true;
-      for (const [index, [key, value]] of Object.entries(
-        this.detailsObject
-      ).entries()) {
+      let count = 0;
+      for (const [key, value] of this.detailsMap) {
         setTimeout(() => {
           if (key === "checkIn") this.details.push(`Check in from ${value}`);
           else if (key === "checkOut")
             this.details.push(`Check out at ${value}`);
           else this.details.push(value);
-        }, index * 200);
+        }, count * 200);
+        count++;
       }
     },
     fillStars() {
