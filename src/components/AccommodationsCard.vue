@@ -13,7 +13,7 @@
         :style="{
           backgroundImage: `url(${bkgImg})`
         }"
-      ></div>
+      />
     </header>
     <div class="meta">
       <div class="rating">
@@ -122,19 +122,23 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .primary-btn {
-  margin: 10px;
-  font-size: 0.8rem;
-  background: #f5f7fa;
-  color: #1f2933;
+  margin: 12px;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  background: #f9703e;
+  /* background: #323f4b; */
+  color: #f5f7fa;
   border: 0;
-  padding: 5px 10px;
+  padding: 8px;
   border-radius: 4px;
   outline: 0;
   cursor: pointer;
 }
 
 .primary-btn:hover {
-  background: #cbd2d9;
+  background: #f35627;
+  /* background: #1f2933; */
 }
 
 .accommodation-card {
