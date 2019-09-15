@@ -178,11 +178,12 @@ main {
 
 .slide-enter-active,
 .slide-leave-active {
-  transition: transform 0.3s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 .slide-enter,
 .slide-leave-to {
-  transform: translateX(-100px);
+  transform: translateX(-400px);
+  opacity: 0;
 }
 </style>
