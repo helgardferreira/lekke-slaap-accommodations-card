@@ -195,14 +195,14 @@ main {
     }
   }
 
-.premium-banner {
-  text-align: right;
-  clip-path: polygon(0% 0%, 100% 0, 100% 100%, 10% 100%);
-  border-radius: 0 0 0 100px;
-  background: #e9b949;
-  margin: 0;
-  padding: 10px;
-  color: #1f2933;
+  .premium-text {
+    font-size: 14px;
+    margin: 0;
+    display: inline-block;
+    color: #e9b949;
+    font-weight: bold;
+    transition: background 1s;
+  }
 }
 
 .extract {
