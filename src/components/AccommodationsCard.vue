@@ -203,11 +203,9 @@ main {
 
 .extract {
   color: #1f2933;
-  font-size: 0.8rem;
-  background: #f5f7fa;
-  border-radius: 5px;
-  margin: 10px 10px 0 10px;
-  padding: 10px;
+  font-size: 18px;
+  margin: 12px;
+  padding: 0;
 }
 
 .pricing {
