@@ -167,15 +167,15 @@ main {
 }
 
 .header-text {
+  font-size: 16px;
   background: rgba(0, 0, 0, 0.7);
-  max-width: calc(90% - 70px);
+  max-width: calc(80% - 28px);
   text-align: left;
   position: absolute;
-  top: 15%;
+  top: 12%;
   z-index: 1000;
   overflow: hidden;
   border-radius: 0 50px 50px 0;
-  // transition: 0.3s opacity ease-in;
   margin: 0;
   padding: 14px;
   color: #f5f7fa;
