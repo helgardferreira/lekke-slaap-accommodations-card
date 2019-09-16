@@ -158,12 +158,6 @@ export default {
   }
 }
 
-main {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 .header-img {
   background-position: center;
   background-repeat: no-repeat;
