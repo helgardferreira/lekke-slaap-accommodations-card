@@ -1,6 +1,7 @@
 <template>
   <div class="details">
     <transition-group>
+      <!-- Dynamically bind either top, middle, or bottom detail style class depending on index's value -->
       <p
         v-for="(detail, index) in details"
         :key="`${detail}`"
@@ -10,6 +11,7 @@
           'detail-bottom': index === details.length - 1
         }"
       >
+        <!-- Element will be an anchor element if detail is an object with a href property -->
         <a
           v-if="detail.href"
           :href="detail.href"
@@ -51,6 +53,7 @@ export default {
     margin: 2px 0;
     padding: 8px;
   }
+  /* Custom styling for anchor element in details to fit with overall theme */
   a {
     color: $neutral-color-white;
   }
@@ -62,6 +65,7 @@ export default {
   }
 }
 
+/* Different styling for top, middle, and bottom detail items for overall 'pill' shaped look */
 .detail-top {
   border-radius: 4px 4px 0 0;
 }
@@ -74,6 +78,7 @@ export default {
   border-radius: 0 0 4px 4px;
 }
 
+/* Vue animation styling */
 .v-enter-active,
 .v-leave-active {
   transition: all 0.5s ease-out;

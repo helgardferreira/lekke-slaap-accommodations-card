@@ -24,6 +24,7 @@
           ])
         "
       >
+        <!-- Accommodations card component makes use of slots for the extract as well as the pricing -->
         <p slot="extract">
           <strong>Tsala Treetop Lodge</strong> is a lavish celebration of the
           spirit of Africa.

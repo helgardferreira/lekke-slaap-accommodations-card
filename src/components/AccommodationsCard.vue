@@ -2,6 +2,7 @@
   <div class="accommodation-card">
     <!-- Add both click listener as well as keyboard listener for accessibility standards -->
     <header @click="goTo(lekkeLink)" @keyup.enter="goTo(lekkeLink)">
+      <!-- I used an overlay here for the text on-top of the image so that it could support a carousel of images -->
       <h4 class="header-text">
         <a :href="lekkeLink">
           {{ name }}
@@ -97,7 +98,11 @@ export default {
     mapDetails() {
       this.showDetails = true;
       let count = 0;
+      // I used a Map object for the detailsMap prop -
+      // so that I could easily iterate over it like so:
       for (const [key, value] of this.detailsMap) {
+        // setTimeout is used here to add a delay to each details item's reveal -
+        // for animation purposes
         setTimeout(() => {
           if (key === "checkIn") this.details.push(`Check in from ${value}`);
           else if (key === "checkOut")
@@ -109,6 +114,8 @@ export default {
     },
     fillStars() {
       for (let i = 0; i < Math.floor(this.rating); i++) {
+        // setTimeout is used here to add a delay to star's reveal -
+        // for animation purposes
         setTimeout(() => {
           this.starColors.push("#e9b949");
         }, 1 + i * 200);
@@ -139,6 +146,7 @@ export default {
   cursor: pointer;
 }
 
+/* Active, and focus styling for button for accessibility reasons */
 .primary-btn:hover,
 .primary-btn:active,
 .primary-btn:focus {
