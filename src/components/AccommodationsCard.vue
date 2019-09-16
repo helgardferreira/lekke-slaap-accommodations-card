@@ -44,51 +44,35 @@
     <button class="primary-btn" v-if="!showDetails" @click="mapDetails">
       View More
     </button>
-    <div class="details">
-      <transition-group name="slide">
-        <p
-          v-for="(detail, index) in details"
-          :key="`${detail}`"
-          :class="{
-            'detail-top': index === 0,
-            'detail-middle': index > 0 && index < details.length - 1,
-            'detail-bottom': index === details.length - 1
-          }"
-        >
-          <a
-            v-if="detail.href"
-            :href="detail.href"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {{ detail.text }}
-          </a>
-          <template v-else>
-            {{ detail }}
-          </template>
-        </p>
-      </transition-group>
-    </div>
+    <app-details-list :details="details" />
   </div>
 </template>
 
 <script>
 import Star from "../components/icons/Star";
+import DetailsList from "../components/DetailsList";
 
 export default {
   name: "AccommodationsCard",
   props: {
-    name: {},
-    detailsMap: {},
+    name: {
+      type: String
+    },
+    detailsMap: {
+      type: Map
+    },
     rating: {
+      type: Number,
       default: 0
     },
     reviewCount: {
+      type: Number,
       default: 0
     }
   },
   components: {
-    starIcon: Star
+    starIcon: Star,
+    appDetailsList: DetailsList
   },
   data() {
     return {
@@ -232,50 +216,5 @@ main {
   font-size: 14px;
   margin: 12px;
   padding: 0;
-}
-
-.details {
-  color: $neutral-color-white;
-  font-weight: bold;
-  font-size: 14px;
-  margin: 12px;
-  p {
-    background: $primary-color;
-    list-style-type: none;
-    margin: 2px 0;
-    padding: 8px;
-  }
-  a {
-    color: $neutral-color-white;
-  }
-  a:visited {
-    color: $neutral-color-light-grey;
-  }
-  a:hover {
-    color: $neutral-color-white;
-  }
-}
-
-.detail-top {
-  border-radius: 4px 4px 0 0;
-}
-
-.detail-middle {
-  border-radius: 0;
-}
-
-.detail-bottom {
-  border-radius: 0 0 4px 4px;
-}
-
-.slide-enter-active,
-.slide-leave-active {
-  transition: all 0.5s ease-out;
-}
-
-.slide-enter,
-.slide-leave-to {
-  transform: translateX(-400px);
-  opacity: 0;
 }
 </style>

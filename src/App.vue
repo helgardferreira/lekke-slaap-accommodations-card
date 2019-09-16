@@ -5,8 +5,8 @@
     <div class="appointments">
       <accommodations-card
         name="Tsala Treetop Lodge"
-        rating="4.3"
-        reviewCount="1"
+        :rating="4.3"
+        :reviewCount="1"
         :detailsMap="
           new Map([
             ['type', 'Hotel'],
