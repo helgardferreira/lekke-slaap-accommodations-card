@@ -131,14 +131,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+$primary-color: #f9703e;
+$primary-color-dark: #f35627;
+$neutral-color-white: #f5f7fa;
+$neutral-color-light-grey: #e4e7eb;
+$neutral-color-dark-grey: #1f2933;
+$accent-color-premium: #e9b949;
+
 .primary-btn {
   margin: 12px;
   display: block;
   font-size: 14px;
   font-weight: bold;
-  background: #f9703e;
-  /* background: #323f4b; */
-  color: #f5f7fa;
+  background: $primary-color;
+  color: $neutral-color-white;
   border: 0;
   padding: 8px;
   border-radius: 4px;
@@ -147,16 +153,15 @@ export default {
 }
 
 .primary-btn:hover {
-  background: #f35627;
-  /* background: #1f2933; */
+  background: $primary-color-dark;
 }
 
 .accommodation-card {
   width: 300px;
-  border: 1px solid #e4e7eb;
+  border: 1px solid $neutral-color-light-grey;
   overflow: hidden;
   border-radius: 8px;
-  background: #f5f7fa;
+  background: $neutral-color-white;
   header {
     cursor: pointer;
     position: relative;
@@ -188,7 +193,7 @@ main {
   border-radius: 0 50px 50px 0;
   margin: 0;
   padding: 14px;
-  color: #f5f7fa;
+  color: $neutral-color-white;
 }
 
 .meta {
@@ -209,57 +214,54 @@ main {
     font-size: 14px;
     margin: 0;
     display: inline-block;
-    color: #e9b949;
+    color: $accent-color-premium;
     font-weight: bold;
     transition: background 1s;
   }
 }
 
 .extract {
-  color: #1f2933;
+  color: $neutral-color-dark-grey;
   font-size: 18px;
   margin: 12px;
   padding: 0;
 }
 
 .pricing {
-  color: #1f2933;
+  color: $neutral-color-dark-grey;
   font-size: 14px;
   margin: 12px;
   padding: 0;
 }
 
 .details {
-  color: #f5f7fa;
+  color: $neutral-color-white;
   font-weight: bold;
   font-size: 14px;
   margin: 12px;
   p {
-    background: #f9703e;
-    /* background: #323f4b; */
+    background: $primary-color;
     list-style-type: none;
     margin: 2px 0;
     padding: 8px;
   }
   a {
-    color: #f5f7fa;
+    color: $neutral-color-white;
   }
   a:visited {
-    color: #e4e7eb;
+    color: $neutral-color-light-grey;
   }
   a:hover {
-    color: #f5f7fa;
+    color: $neutral-color-white;
   }
 }
 
 .detail-top {
   border-radius: 4px 4px 0 0;
-  /* border-bottom: 2px solid #f5f7fa; */
 }
 
 .detail-middle {
   border-radius: 0;
-  /* border-bottom: 2px solid #f5f7fa; */
 }
 
 .detail-bottom {
