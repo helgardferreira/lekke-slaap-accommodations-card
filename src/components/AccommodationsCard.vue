@@ -123,12 +123,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-$primary-color: #f9703e;
-$primary-color-dark: #f35627;
-$neutral-color-white: #f5f7fa;
-$neutral-color-light-grey: #e4e7eb;
-$neutral-color-dark-grey: #1f2933;
-$accent-color-premium: #e9b949;
+@import "../assets/css/variables.scss";
 
 .primary-btn {
   margin: 12px;

@@ -38,10 +38,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$primary-color: #f9703e;
-$primary-color-dark: #f35627;
-$neutral-color-white: #f5f7fa;
-$neutral-color-light-grey: #e4e7eb;
+@import "../assets/css/variables.scss";
 
 .details {
   color: $neutral-color-white;
