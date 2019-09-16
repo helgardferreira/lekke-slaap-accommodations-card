@@ -1,12 +1,11 @@
 <template>
   <div class="accommodation-card">
-    <header
-      @click="
-        goTo('https://www.lekkeslaap.co.za/akkommodasie/tsala-treetop-lodge')
-      "
-    >
+    <!-- Add both click listener as well as keyboard listener for accessibility standards -->
+    <header @click="goTo(lekkeLink)" @keyup.enter="goTo(lekkeLink)">
       <h4 class="header-text">
-        {{ name }}
+        <a :href="lekkeLink">
+          {{ name }}
+        </a>
       </h4>
       <div
         class="header-img"
@@ -41,7 +40,13 @@
         Get a quote for <strong>{{ name }}</strong></slot
       >
     </div>
-    <button class="primary-btn" v-if="!showDetails" @click="mapDetails">
+    <!-- Add both click listener as well as keyboard listener for accessibility standards -->
+    <button
+      class="primary-btn"
+      v-if="!showDetails"
+      @click="mapDetails"
+      @keyup.enter="mapDetails"
+    >
       View More
     </button>
     <app-details-list :details="details" />
@@ -58,9 +63,6 @@ export default {
     name: {
       type: String
     },
-    detailsMap: {
-      type: Map
-    },
     rating: {
       type: Number,
       default: 0
@@ -68,6 +70,12 @@ export default {
     reviewCount: {
       type: Number,
       default: 0
+    },
+    lekkeLink: {
+      type: String
+    },
+    detailsMap: {
+      type: Map
     }
   },
   components: {
@@ -136,8 +144,11 @@ $accent-color-premium: #e9b949;
   cursor: pointer;
 }
 
-.primary-btn:hover {
+.primary-btn:hover,
+.primary-btn:active,
+.primary-btn:focus {
   background: $primary-color-dark;
+  border: 2px solid $neutral-color-dark-grey;
 }
 
 .accommodation-card {
@@ -178,6 +189,19 @@ main {
   margin: 0;
   padding: 14px;
   color: $neutral-color-white;
+  a {
+    color: $neutral-color-white;
+    text-decoration: none;
+  }
+  a:visited {
+    color: $neutral-color-white;
+  }
+  a:hover,
+  a:active,
+  a:focus {
+    color: $neutral-color-white;
+    text-decoration: underline;
+  }
 }
 
 .meta {

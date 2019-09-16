@@ -7,6 +7,7 @@
         name="Tsala Treetop Lodge"
         :rating="4.3"
         :reviewCount="1"
+        lekkeLink="https://www.lekkeslaap.co.za/akkommodasie/tsala-treetop-lodge"
         :detailsMap="
           new Map([
             ['type', 'Hotel'],
