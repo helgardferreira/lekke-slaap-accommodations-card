@@ -1,5 +1,5 @@
 <template>
-  <div class="accommodation-card">
+  <div class="accommodations-card">
     <!-- Add both click listener as well as keyboard listener for accessibility standards -->
     <header @click="goTo(lekkeLink)" @keyup.enter="goTo(lekkeLink)">
       <!-- I used an overlay here for the text on-top of the image so that it could support a carousel of images -->
@@ -154,7 +154,7 @@ export default {
   border: 2px solid $neutral-color-dark-grey;
 }
 
-.accommodation-card {
+.accommodations-card {
   width: 300px;
   border: 1px solid $neutral-color-light-grey;
   overflow: hidden;

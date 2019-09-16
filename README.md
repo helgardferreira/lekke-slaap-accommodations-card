@@ -1,4 +1,4 @@
-# lekke-slaap-accomodation-results
+# lekke-slaap-accommodation-results
 
 ## Project setup
 ```
